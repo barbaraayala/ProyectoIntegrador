@@ -1,0 +1,354 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap");
+
+:root {
+  /*colores*/
+  --rojos-primarios: #ff3333;
+  --rojos-900: rgba(255, 51, 51, 0.9);
+  --rojos-500: rgba(255, 51, 51, 0.5);
+  --rojos-300: rgba(255, 51, 51, 0.3);
+
+  --azul-primario: #1d84b5;
+  --azul-900: rgb(29, 132, 181, 0.9);
+  --azul-500: rgb(29, 132, 181, 0.5);
+  --azul-300: rgba(5, 53, 75, 0.3);
+
+  --negro-primario: #1f1f1f;
+  --negro-900: rgb(31, 31, 31, 0.9);
+  --negro-500: rgb(31, 31, 31, 0.5);
+  --negro-300: rgb(31, 31, 31, 0.3);
+
+  --back-oscuro: #30343f;
+  --back-claro: #fafaff;
+
+  /*tipografia*/
+
+  --fuente-principal: "Inter", sans-serif;
+  --fuente-secundaria: "Raleway", sans-serif;
+
+  /* tamaño de fuente */
+
+  --letra-display: 4.6em;
+  --letra-jumbo: 3.8em;
+  --letra-xlarge: 3em;
+  --letra-large: 2.4em;
+  --letra-medium: 1.8em;
+  --letra-small: 1.6em;
+  --letra-xsmall: 1.4em;
+
+  /*espacios*/
+
+  --espacios-128: 12.8rem;
+  --espacios-68: 6.8rem;
+  --espacios-36: 3.6rem;
+  --espacios-28: 2.8rem;
+  --espacios-24: 2.4rem;
+  --espacios-20: 2rem;
+  --espacios-16: 1.6rem;
+  --espacios-12: 1.2rem;
+  --espacios-8: 0.8rem;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--fuente-principal);
+  font-size: 62.5%;
+  color: var(--back-oscuro);
+}
+
+a {
+  text-decoration: none;
+ 
+  color: inherit;
+  font-family: inherit;
+}
+
+header,
+footer {
+  font-family: var(--fuente-secundaria);
+  color: white;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+p {
+  font-size: 1.8em;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+img{
+    width: 100%;
+}
+
+/*HEADER*/
+
+header {
+  background-color: var(--back-oscuro);
+  padding: var(--espacios-36);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar_logo{
+    max-width: 300px;
+
+}
+
+.navbar_menu {
+  display: flex;
+  align-items: center;
+  gap: var(--espacios-20);
+}
+
+.navbar_link{
+    font-size: var(--letra-medium);
+    padding: var(--espacios-8) var(--espacios-16);
+    display: inline-block;
+   transition: background.3s  ease-in-out;
+   position: relative;
+}
+
+.navbar_link:hover{
+    background-color: var(--rojos-900);
+    
+}
+
+.with-icon{
+    display: flex;
+    align-items: center;
+    gap: var(--espacios-8);
+}
+
+
+.with_submenu:hover .submenu{
+    display: block;
+    
+}
+
+.submenu{
+    display: none;
+    width: 300px;
+    position: absolute;
+    background-color: var(--back-oscuro);
+    z-index: 3;
+}
+
+.submenu_link{
+    display: block;
+    padding: var(--espacios-8)var(--espacios-16);
+    font-size: var(--letra-medium);
+    transition: background.3s  ease-in-out;
+
+}
+
+.submenu_link:hover {
+    background-color: var(--rojos-900);
+}
+/*hero*/
+
+.hero{
+    background-image: url(../img/funkos-banner.webp);
+    padding: var(--espacios-128);
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+
+}
+ 
+.hero::before{
+    content: "";
+    background-color: rgba(0,0,0,0);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0%;
+    left: 0;
+    backdrop-filter:blur(2px) brightness(.9) ;
+}
+.hero_conten{
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacios-20);
+    align-items: start;
+    z-index: 1;
+    position: relative;
+
+}
+
+.hero_titulo{
+    font-family: var(--fuente-secundaria);
+    font-size: var(--letra-jumbo);
+    color: var(--back-claro);
+
+}
+
+.hero_text{
+    font-family: var(--fuente-secundaria);
+    color: var(--back-claro);
+    font-size: var(--letra-medium);
+
+}
+
+.hero_link{
+    display: inline-block;
+    font-size: var(--letra-medium);
+    background-color: var(--back-claro);
+    padding: var(--espacios-12) var(--espacios-16);
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all .3s ease-in-out;
+}
+
+.hero_link:hover{
+    background-color: var(--rojos-900);
+    color: var(--back-claro);
+}
+
+/*collection*/
+
+.collection{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    padding: var(--espacios-16) 0;
+
+}
+
+.collection:nth-child(2) .collection-img{
+    order: -1;
+}
+
+.collection-conten{
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacios-24);
+    align-items: start;
+
+}
+
+.collection-titulo{
+    font-family: var(--fuente-secundaria);
+    font-size: var(--letra-display);
+    font-weight: 500;
+}
+
+.collection-text{
+    font-family: var(--fuente-secundaria);
+    font-size: var(--letra-large);
+    font-weight: 300;
+    border-bottom: 2px solid var(--rojos-primarios) ;
+    padding-bottom: var(--espacios-20);
+}
+
+.collection-link{
+    display: inline-block;
+    font-size: var(--letra-medium);
+    background-color: var(--back-oscuro);
+    border-radius:50px ;
+    color: var(--back-claro);
+    padding: var(--espacios-16) var(--espacios-36);
+    font-weight: 500;
+    transition: all .3s ease-in-out;
+}
+
+.collection-link:hover{
+    background-color: var(--rojos-primarios);
+
+}
+
+/*slider*/
+
+.slider{
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacios-36);
+    margin: var(--espacios-68) auto;
+}
+
+.slider-titulo{
+    font-family: var(--fuente-secundaria);
+    font-size: var(--letra-display);
+    text-transform: uppercase;
+
+}
+
+.slider-items{
+    display: flex;
+    gap: var(--espacios-24);
+
+}
+
+.card-item{
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacios-12);
+    padding: var(--espacios-16);
+
+}
+
+.card.img{
+    display: flex;
+}
+.card-img__back{
+    display: none;
+}
+
+.card-img:hover .card-img__back{
+    display: block;
+
+}
+
+.card-img:hover .card-img__front{
+    display: none;
+}
+
+.card-licence{
+    font-size: var(--letra-xsmall);
+    font-weight: 500;
+}
+
+.card-name{
+    font-size: var(--letra-medium);
+    font-weight: 700;
+}
+
+.card-price{
+    font-size: var(--letra-small);
+    
+}
+
+.card-promo{
+    font-size: var(--letra-xsmall);
+    font-weight: 500;
+    color: var(--azul-primario);
+    
+}
+ 
+/* footer*/
+
+.footer{
+    background-color: var(--back-oscuro);
+    padding: var(--espacios-68);
+}
+
+.footer-copy{
+    text-align: center;
+    margin-top: var(--espacios-36);
+}
+
